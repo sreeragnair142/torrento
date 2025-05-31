@@ -61,6 +61,7 @@ function updateSummaryElement(container, data) {
 }
 
 function calculatePricing() {
+  alert("ZXCVBN")
   // Get base price
   let basePrice = pricing[currentSelections.cleaningType].basePrice;
   
