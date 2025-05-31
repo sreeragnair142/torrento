@@ -406,113 +406,155 @@
 
               <!-- Step 3 - Customize your Cleaning -->
               <div class="form-steps" id="step3">
-                <div class="form-block">
-                  <a href="#" class="prev-page prev-step" data-prev="step2">Back to Previous</a>
-                  <div class="donation-header">
-                    <h2>Customize your Cleaning</h2>
-                    <p>3/5</p>
-                  </div>
+  <div class="form-block">
+    <a href="#" class="prev-page prev-step" data-prev="step2">Back to Previous</a>
+    <div class="donation-header">
+      <h2>Customize your Cleaning</h2>
+      <p>3/5</p>
+    </div>
 
-                  <div class="form-group">
-                    <p>If you selected House Cleaning package in Step 2, we highly recommend first-time
-                      customers to book a Deep Clean to ensure their property is adequately cleaned. Visit
-                      our <strong>checklist</strong> to see what our cleaning packages include.</p>
-                  </div>
+    <div class="form-group">
+      <p>If you selected House Cleaning package in Step 2, we highly recommend first-time
+        customers to book a Deep Clean to ensure their property is adequately cleaned. Visit
+        our <strong>checklist</strong> to see what our cleaning packages include.</p>
+    </div>
 
-                  <div class="cleaning-options">
-                    <div class="cleaning-option" data-option="deep-clean">
-                      <div class="icon">🧽</div>
-                      <div class="title">Deep Clean Package</div>
-                    </div>
-                    <div class="cleaning-option" data-option="move-in-out">
-                      <div class="icon">📦</div>
-                      <div class="title">Move In/Out Clean Package</div>
-                    </div>
-                    <div class="cleaning-option" data-option="renovation">
-                      <div class="icon">🔨</div>
-                      <div class="title">Renovation Clean Package</div>
-                    </div>
-                    <div class="cleaning-option" data-option="move-student">
-                      <div class="icon">🎓</div>
-                      <div class="title">Move In/Out Package (Student Property)</div>
-                    </div>
-                  </div>
+    <div class="cleaning-options">
+      <div class="cleaning-option" data-option="deep-clean" onclick="selectOption(this)">
+        <div class="icon">🧽</div>
+        <div class="title">Deep Clean Package</div>
+      </div>
+      <div class="cleaning-option" data-option="move-in-out" onclick="selectOption(this)">
+        <div class="icon">📦</div>
+        <div class="title">Move In/Out Clean Package</div>
+      </div>
+      <div class="cleaning-option" data-option="renovation" onclick="selectOption(this)">
+        <div class="icon">🔨</div>
+        <div class="title">Renovation Clean Package</div>
+      </div>
+      <div class="cleaning-option" data-option="move-student" onclick="selectOption(this)">
+        <div class="icon">🎓</div>
+        <div class="title">Move In/Out Package (Student Property)</div>
+      </div>
+    </div>
 
-                  <div class="cleaning-options">
-                    <div class="cleaning-option" data-option="airbnb">
-                      <div class="icon">🏠</div>
-                      <div class="title">AirBnB Listing</div>
-                    </div>
-                    <div class="cleaning-option" data-option="pets">
-                      <div class="icon">❤️</div>
-                      <div class="title">I have Pets</div>
-                    </div>
-                    <div class="cleaning-option" data-option="fridge">
-                      <div class="icon">📋</div>
-                      <div class="title">Inside Fridge</div>
-                    </div>
-                    <div class="cleaning-option" data-option="oven">
-                      <div class="icon">🔥</div>
-                      <div class="title">Inside Oven</div>
-                    </div>
-                  </div>
+    <div class="cleaning-options">
+      <div class="cleaning-option" data-option="airbnb" onclick="selectOption(this)">
+        <div class="icon">🏠</div>
+        <div class="title">AirBnB Listing</div>
+      </div>
+      <div class="cleaning-option" data-option="pets" onclick="selectOption(this)">
+        <div class="icon">❤️</div>
+        <div class="title">I have Pets</div>
+      </div>
+      <div class="cleaning-option" data-option="fridge" onclick="selectOption(this)">
+        <div class="icon">📋</div>
+        <div class="title">Inside Fridge</div>
+      </div>
+      <div class="cleaning-option" data-option="oven" onclick="selectOption(this)">
+        <div class="icon">🔥</div>
+        <div class="title">Inside Oven</div>
+      </div>
+    </div>
 
-                  <div class="cleaning-options">
-                    <div class="cleaning-option" data-option="cabinets">
-                      <div class="icon">🗄️</div>
-                      <div class="title">Inside Cabinets</div>
-                    </div>
-                    <div class="cleaning-option" data-option="kitchen">
-                      <div class="icon">🍽️</div>
-                      <div class="title">Additional Kitchen</div>
-                    </div>
-                    <div class="cleaning-option" data-option="blinds">
-                      <div class="icon">🪟</div>
-                      <div class="title">Blinds (per window)</div>
-                    </div>
-                    <div class="cleaning-option" data-option="windows">
-                      <div class="icon">🏠</div>
-                      <div class="title">Inside Windows with Tracks (up to 6)</div>
-                    </div>
-                  </div>
+    <div class="cleaning-options">
+      <div class="cleaning-option" data-option="cabinets" onclick="selectOption(this)">
+        <div class="icon">🗄️</div>
+        <div class="title">Inside Cabinets</div>
+      </div>
+      <div class="cleaning-option" data-option="kitchen" onclick="selectOption(this)">
+        <div class="icon">🍽️</div>
+        <div class="title">Additional Kitchen</div>
+      </div>
+      <div class="cleaning-option" data-option="blinds" onclick="selectOption(this)">
+        <div class="icon">🪟</div>
+        <div class="title">Blinds (per window)</div>
+      </div>
+      <div class="cleaning-option" data-option="windows" onclick="selectOption(this)">
+        <div class="icon">🏠</div>
+        <div class="title">Inside Windows with Tracks (up to 6)</div>
+      </div>
+    </div>
 
-                  <!-- Mobile summary for step 3 -->
-                  <div class="mobile-summary">
-                    <h3>Service Summary</h3>
-                    <div class="service-row">
-                      <span class="service-name">Standard House Cleaning</span>
-                      <span class="service-price">$89.00</span>
-                    </div>
-                    <div class="time-slot">06/11/2025 @ 8:00AM - 9:00AM</div>
-                    <div class="frequency">Weekly - 20% off</div>
-                    <div class="totals">
-                      <div class="subtotal">
-                        <span>SUB-TOTAL</span>
-                        <span>$89.00</span>
-                      </div>
-                      <div class="tax">
-                        <span>SALES TAX</span>
-                        <span>$11.57</span>
-                      </div>
-                    </div>
-                    <div class="fees">
-                      <div class="initial-fee">
-                        <span>Initial Clean Fee</span>
-                        <span>$100.57</span>
-                      </div>
-                      <div class="recurring-fee">
-                        <span>Recurring Clean Fee</span>
-                        <span>$80.46</span>
-                      </div>
-                    </div>
-                  </div>
+    <!-- Hidden input to store selected options -->
+    <input type="hidden" id="selectedOptions" name="selectedOptions" value="">
 
-                  <div class="form-buttons">
-                    <button type="button" class="btn btn-secondary prev-step" data-prev="step2">Back</button>
-                    <button type="button" class="btn btn-primary next-step" data-next="step4">Continue</button>
-                  </div>
-                </div>
-              </div>
+    <!-- Mobile summary for step 3 -->
+    <div class="mobile-summary">
+      <h3>Service Summary</h3>
+      <div class="service-row">
+        <span class="service-name">Standard House Cleaning</span>
+        <span class="service-price">$89.00</span>
+      </div>
+      <div class="time-slot">06/11/2025 @ 8:00AM - 9:00AM</div>
+      <div class="frequency">Weekly - 20% off</div>
+      <div class="totals">
+        <div class="subtotal">
+          <span>SUB-TOTAL</span>
+          <span>$89.00</span>
+        </div>
+        <div class="tax">
+          <span>SALES TAX</span>
+          <span>$11.57</span>
+        </div>
+      </div>
+      <div class="fees">
+        <div class="initial-fee">
+          <span>Initial Clean Fee</span>
+          <span>$100.57</span>
+        </div>
+        <div class="recurring-fee">
+          <span>Recurring Clean Fee</span>
+          <span>$80.46</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="btn btn-secondary prev-step" data-prev="step2">Back</button>
+      <button type="button" class="btn btn-primary next-step" data-next="step4">Continue</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to handle option selection
+  function selectOption(element) {
+    // Toggle selected class for visual feedback
+    element.classList.toggle('selected');
+    
+    // Get all selected options
+    const selectedOptions = document.querySelectorAll('.cleaning-option.selected');
+    const optionsArray = Array.from(selectedOptions).map(opt => opt.getAttribute('data-option'));
+    
+    // Store selected options in hidden input
+    document.getElementById('selectedOptions').value = optionsArray.join(',');
+  }
+
+  // Initialize with some CSS for selected state
+  document.addEventListener('DOMContentLoaded', function() {
+    const style = document.createElement('style');
+    style.textContent = `
+      .cleaning-option.selected {
+        border: 2px solid #4CAF50;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      }
+      .cleaning-option {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      .cleaning-option:hover {
+        background-color: #f0f0f0;
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+
 
               <!-- Step 4: Contact Information -->
               <div class="form-steps" id="step4">
