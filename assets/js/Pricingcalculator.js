@@ -49,6 +49,17 @@ let currentSelections = {
   bathrooms: ''
 };
 
+function updateSummaryElement(container, data) {
+  container.querySelector('.service-name').textContent = data.serviceName;
+  container.querySelector('.service-price').textContent = `$${data.basePrice.toFixed(2)}`;
+  container.querySelector('.time-slot').textContent = data.timeSlot;
+  container.querySelector('.frequency').textContent = data.frequencyText;
+  container.querySelector('.subtotal span:last-child').textContent = `$${data.subtotal.toFixed(2)}`;
+  container.querySelector('.tax span:last-child').textContent = `$${data.tax.toFixed(2)}`;
+  container.querySelector('.initial-fee span:last-child').textContent = `$${data.total.toFixed(2)}`;
+  container.querySelector('.recurring-fee span:last-child').textContent = `$${data.recurringTotal.toFixed(2)}`;
+}
+
 function calculatePricing() {
   // Get base price
   let basePrice = pricing[currentSelections.cleaningType].basePrice;
@@ -84,10 +95,6 @@ function calculatePricing() {
   // Calculate recurring price (without initial fee)
   const recurringTotal = subtotal + (subtotal * pricing.taxRate);
   
-  // Update the display
-  document.querySelector('.service-name').textContent = pricing[currentSelections.cleaningType].name;
-  document.querySelector('.service-price').textContent = `$${basePrice.toFixed(2)}`;
-  
   // Format frequency display text
   const frequencyText = {
     'weekly': 'Weekly - 20% off',
@@ -96,21 +103,37 @@ function calculatePricing() {
     'one-time': 'One Time'
   };
   
-  document.querySelector('.frequency').textContent = frequencyText[currentSelections.frequency];
-  
-  // Update totals
-  document.querySelector('.subtotal span:last-child').textContent = `$${subtotal.toFixed(2)}`;
-  document.querySelector('.tax span:last-child').textContent = `$${tax.toFixed(2)}`;
-  document.querySelector('.initial-fee span:last-child').textContent = `$${total.toFixed(2)}`;
-  document.querySelector('.recurring-fee span:last-child').textContent = `$${recurringTotal.toFixed(2)}`;
-  
-  // Update time slot if date/time is selected
+  // Get time slot
   const dateInput = document.getElementById('service-date');
   const timeSelect = document.getElementById('service-time');
+  let timeSlot = 'Not selected';
   if (dateInput.value && timeSelect.value) {
-    document.querySelector('.time-slot').textContent = 
-      `${dateInput.value} @ ${timeSelect.value}`;
+    timeSlot = `${dateInput.value} @ ${timeSelect.value}`;
   }
+  
+  // Prepare data for all summaries
+  const summaryData = {
+    serviceName: pricing[currentSelections.cleaningType].name,
+    basePrice: basePrice,
+    timeSlot: timeSlot,
+    frequencyText: frequencyText[currentSelections.frequency],
+    subtotal: subtotal,
+    tax: tax,
+    total: total,
+    recurringTotal: recurringTotal
+  };
+  
+  // Update desktop summary
+  const desktopSummary = document.querySelector('.desktop-summary .pricing-summary');
+  if (desktopSummary) {
+    updateSummaryElement(desktopSummary, summaryData);
+  }
+  
+  // Update all mobile summaries
+  const mobileSummaries = document.querySelectorAll('.mobile-summary');
+  mobileSummaries.forEach(summary => {
+    updateSummaryElement(summary, summaryData);
+  });
 }
 
 // Initialize the calculator
