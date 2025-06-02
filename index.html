@@ -20,6 +20,9 @@
   <link rel="stylesheet" type="text/css" href="assets/css/donation.css">
   <link rel="stylesheet" href="assets/css/form.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+      
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
@@ -30,93 +33,7 @@
   <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="assets/images/icon-114x114.png"> -->
 
-  <style>
-    /* Hide pricing summary on mobile */
-    @media (max-width: 991px) {
-      .content-block.desktop-summary {
-        display: none;
-      }
-    }
-    
-    /* Mobile summary styling */
-    .mobile-summary {
-      display: none;
-      margin-top: 20px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 8px;
-    }
-    
-    @media (max-width: 991px) {
-      .mobile-summary {
-        display: block;
-      }
-    }
-    
-    .mobile-summary h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    
-    .mobile-summary .service-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    
-    .mobile-summary .time-slot {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 8px;
-    }
-    
-    .mobile-summary .frequency {
-      font-size: 14px;
-      color: #28a745;
-      margin-bottom: 10px;
-    }
-    
-    .mobile-summary .totals {
-      border-top: 1px solid #ddd;
-      padding-top: 10px;
-      margin-top: 10px;
-    }
-    
-    .mobile-summary .totals div {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-    }
-    
-    .mobile-summary .fees {
-      border-top: 1px solid #ddd;
-      padding-top: 10px;
-      margin-top: 10px;
-    }
-    
-    .mobile-summary .fees div {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-    }
 
-    /* Cleaning option selection styles */
-    .cleaning-option.selected {
-      border: 2px solid #4CAF50;
-      background-color: #f8f9fa;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-    .cleaning-option {
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-    .cleaning-option:hover {
-      background-color: #f0f0f0;
-    }
-  </style>
 </head>
 
 <body>
@@ -569,45 +486,254 @@
               </div>
 
               <!-- Step 6 - Payment Method -->
-              <div class="form-steps" id="step6">
-                <div class="form-block">
-                  <a href="#" class="prev-page prev-step" data-prev="step5">Back to Previous</a>
-                  <div class="donation-header">
-                    <h2>Payment Method</h2>
-                    <p>5/5</p>
-                  </div>
+                <div class="form-steps" id="step6">
+        <div class="form-block">
+            <a href="#" class="prev-page prev-step" data-prev="step5">
+                <i class="fas fa-arrow-left"></i> Back to Previous
+            </a>
+            
+            <div class="donation-header">
+                <h2>Payment Method</h2>
+                <p>Step 5/5</p>
+            </div>
 
-                  <div class="form-group">
-                    <label for="inputCard">Card Number</label>
-                    <input type="text" class="form-control" id="inputCard" placeholder="e.g. 0000 0000 0000 0000"
-                      required>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputHolder">Cardholder name</label>
-                    <input type="text" class="form-control" id="inputHolder" placeholder="e.g. John Doe" required>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="inputExpire">Expiry date</label>
-                        <input type="text" class="form-control" id="inputExpire" placeholder="e.g. MM/YY" required>
-                      </div>
+            <!-- Payment Method Selection -->
+            <div class="payment-methods">
+                <h5 class="mb-3">Choose your payment method:</h5>
+                
+                <!-- Credit/Debit Card Option -->
+                <div class="payment-option" onclick="selectPayment('card')">
+                    <input type="radio" name="paymentMethod" value="card" id="paymentCard">
+                    <div class="payment-icon text-primary">
+                        <i class="fas fa-credit-card"></i>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="inputCCV">CCV Code</label>
-                        <input type="text" class="form-control" id="inputCCV" placeholder="e.g. 000" required>
-                      </div>
+                    <div class="payment-details">
+                        <div class="payment-title">Credit/Debit Card</div>
+                        <p class="payment-description">Pay securely with your credit or debit card</p>
                     </div>
-                  </div>
-
-                  <div class="form-buttons">
-                    <button type="button" class="btn btn-secondary prev-step" data-prev="step5">Back</button>
-                    <button type="submit" class="btn btn-primary">Submit Booking</button>
-                  </div>
                 </div>
-              </div>
 
+                <!-- Cash Option -->
+                <div class="payment-option" onclick="selectPayment('cash')">
+                    <input type="radio" name="paymentMethod" value="cash" id="paymentCash">
+                    <div class="payment-icon text-success">
+                        <span class="emoji-icon">💸</span>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-title">Cash Payment</div>
+                        <p class="payment-description">Pay in cash upon arrival or pickup</p>
+                    </div>
+                </div>
+
+                <!-- Electronic Transaction Option -->
+                <div class="payment-option" onclick="selectPayment('etransaction')">
+                    <input type="radio" name="paymentMethod" value="etransaction" id="paymentEtransaction">
+                    <div class="payment-icon text-info">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-title">Electronic Transaction</div>
+                        <p class="payment-description">UPI, Digital Wallet, Net Banking, etc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Forms -->
+            <div id="paymentForms">
+                <!-- Credit/Debit Card Form -->
+                <div class="form-section" id="cardForm">
+                    <div class="payment-form">
+                        <h6 class="mb-3"><i class="fas fa-credit-card me-2"></i>Card Details</h6>
+                        
+                        <div class="form-group mb-3">
+                            <label for="inputCard" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="inputCard" 
+                                   placeholder="0000 0000 0000 0000" maxlength="19" required>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="inputHolder" class="form-label">Cardholder Name</label>
+                            <input type="text" class="form-control" id="inputHolder" 
+                                   placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group mb-3">
+                                    <label for="inputExpire" class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-control" id="inputExpire" 
+                                           placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group mb-3">
+                                    <label for="inputCCV" class="form-label">CVV Code</label>
+                                    <input type="text" class="form-control" id="inputCCV" 
+                                           placeholder="000" maxlength="4" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cash Payment Form -->
+                <div class="form-section" id="cashForm">
+                    <div class="payment-form">
+                        <h6 class="mb-3"><span class="emoji-icon">💸</span> Cash Payment</h6>
+                        <div class="cash-info">
+                            <h6><i class="fas fa-info-circle me-2"></i>Payment Instructions</h6>
+                            <p class="mb-2">Please note the following for cash payment:</p>
+                            <ul class="mb-0">
+                                <li>Payment must be made in exact amount</li>
+                                <li>Cash payment accepted upon arrival/pickup</li>
+                                <li>Keep your booking reference ready</li>
+                                <li>Receipt will be provided after payment</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cashConfirm" required>
+                                <label class="form-check-label" for="cashConfirm">
+                                    I understand the cash payment terms and conditions
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronic Transaction Form -->
+                <div class="form-section" id="etransactionForm">
+                    <div class="payment-form">
+                        <h6 class="mb-3"><i class="fas fa-mobile-alt me-2"></i>Electronic Payment</h6>
+                        
+                        <div class="etransaction-info">
+                            <h6><i class="fas fa-shield-alt me-2"></i>Secure Digital Payment</h6>
+                            <p class="mb-0">Choose your preferred electronic payment method below:</p>
+                        </div>
+                        
+                        <div class="etransaction-options">
+                            <div class="etransaction-btn" onclick="selectETransaction('upi')">
+                                <i class="fas fa-qrcode d-block mb-1"></i>
+                                <small>UPI</small>
+                            </div>
+                            <div class="etransaction-btn" onclick="selectETransaction('paytm')">
+                                <i class="fas fa-wallet d-block mb-1"></i>
+                                <small>Paytm</small>
+                            </div>
+                            <div class="etransaction-btn" onclick="selectETransaction('gpay')">
+                                <i class="fab fa-google-pay d-block mb-1"></i>
+                                <small>Google Pay</small>
+                            </div>
+                            <div class="etransaction-btn" onclick="selectETransaction('phonepe')">
+                                <i class="fas fa-mobile d-block mb-1"></i>
+                                <small>PhonePe</small>
+                            </div>
+                            <div class="etransaction-btn" onclick="selectETransaction('netbanking')">
+                                <i class="fas fa-university d-block mb-1"></i>
+                                <small>Net Banking</small>
+                            </div>
+                            <div class="etransaction-btn" onclick="selectETransaction('wallet')">
+                                <i class="fas fa-credit-card d-block mb-1"></i>
+                                <small>Digital Wallet</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                            <label for="eTransactionId" class="form-label">Phone Number / UPI ID</label>
+                            <input type="text" class="form-control" id="eTransactionId" 
+                                   placeholder="Enter your phone number or UPI ID">
+                        </div>
+                        
+                        <input type="hidden" id="selectedETransaction" name="selectedETransaction">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" class="btn btn-secondary prev-step" data-prev="step5">
+                    <i class="fas fa-arrow-left me-2"></i>Back
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Submit Booking <i class="fas fa-check ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function selectPayment(method) {
+            // Remove active class from all payment options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            // Add active class to selected option
+            event.currentTarget.classList.add('active');
+            
+            // Check the radio button
+            document.getElementById('payment' + method.charAt(0).toUpperCase() + method.slice(1)).checked = true;
+            
+            // Hide all form sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected form section
+            document.getElementById(method + 'Form').classList.add('active');
+        }
+
+        function selectETransaction(type) {
+            // Remove selected class from all e-transaction options
+            document.querySelectorAll('.etransaction-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            event.currentTarget.classList.add('selected');
+            
+            // Store selected e-transaction type
+            document.getElementById('selectedETransaction').value = type;
+            
+            // Update placeholder based on selection
+            const input = document.getElementById('eTransactionId');
+            if (type === 'upi') {
+                input.placeholder = 'Enter your UPI ID (e.g., user@paytm)';
+            } else if (type === 'netbanking') {
+                input.placeholder = 'Enter your registered mobile number';
+            } else {
+                input.placeholder = 'Enter your registered mobile number';
+            }
+        }
+
+        // Format card number input
+        document.getElementById('inputCard').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            if (formattedValue.length > 19) formattedValue = formattedValue.substr(0, 19);
+            this.value = formattedValue;
+        });
+
+        // Format expiry date input
+        document.getElementById('inputExpire').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0,2) + '/' + value.substring(2,4);
+            }
+            this.value = value;
+        });
+
+        // Format CVV input
+        document.getElementById('inputCCV').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // Default selection
+        document.addEventListener('DOMContentLoaded', function() {
+            selectPayment('card');
+        });
+    </script>
               <!-- Single Mobile Summary Section -->
               <div class="mobile-summary">
                 <h3>Service Summary</h3>

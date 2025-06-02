@@ -58,20 +58,88 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Coupon code application
-  document.getElementById('apply-coupon').addEventListener('click', function() {
-    const couponCode = document.getElementById('coupon-code').value;
-    const feedbackElement = document.getElementById('coupon-feedback');
-    
-    if (couponCode.trim() === '') {
-      feedbackElement.textContent = 'Please enter a coupon code';
-      feedbackElement.style.color = '#e74c3c';
-    } else {
-      // Here you would typically validate the coupon with your server
-      // For demo purposes, we'll just show a success message
-      feedbackElement.textContent = 'Coupon applied successfully!';
-      feedbackElement.style.color = '#28a745';
+    const validCoupons = {
+      'CLEAN10': { discount: 10, type: 'percentage' },
+      'SPARKLE20': { discount: 20, type: 'percentage' },
+      'FIRST5': { discount: 5, type: 'dollars' },
+      'SUMMER15': { discount: 15, type: 'percentage' }
+    };
+
+    // Original prices (you would normally get these from your pricing calculator)
+    let originalPrices = {
+      subtotal: 89.00,
+      tax: 11.57,
+      initialFee: 100.57,
+      recurringFee: 80.46
+    };
+
+    // Current prices (will be modified by coupons)
+    let currentPrices = {
+      subtotal: 89.00,
+      tax: 11.57,
+      initialFee: 100.57,
+      recurringFee: 80.46
+    };
+
+    document.getElementById('apply-coupon').addEventListener('click', function() {
+      const couponCode = document.getElementById('coupon-code').value.trim().toUpperCase();
+      const feedbackElement = document.getElementById('coupon-feedback');
+      
+      if (couponCode === '') {
+        feedbackElement.textContent = 'Please enter a coupon code';
+        feedbackElement.style.color = '#e74c3c';
+        return;
+      }
+
+      if (validCoupons[couponCode]) {
+        const coupon = validCoupons[couponCode];
+        let discountAmount = 0;
+        
+        if (coupon.type === 'percentage') {
+          discountAmount = (originalPrices.subtotal * coupon.discount) / 100;
+        } else {
+          discountAmount = coupon.discount;
+        }
+
+        // Apply discount to prices
+        currentPrices.subtotal = originalPrices.subtotal - discountAmount;
+        currentPrices.tax = (currentPrices.subtotal * 0.13).toFixed(2); // Assuming 13% tax
+        currentPrices.initialFee = (parseFloat(currentPrices.subtotal) + parseFloat(currentPrices.tax)).toFixed(2);
+        
+        // Update the displayed prices
+        updatePrices();
+        
+        feedbackElement.textContent = `Coupon applied successfully! ${coupon.discount}${coupon.type === 'percentage' ? '%' : '$'} discount applied.`;
+        feedbackElement.style.color = '#28a745';
+      } else {
+        feedbackElement.textContent = 'Invalid coupon code';
+        feedbackElement.style.color = '#e74c3c';
+      }
+    });
+
+    function updatePrices() {
+      // Update desktop summary
+      document.querySelector('.desktop-summary .service-price').textContent = `$${currentPrices.subtotal.toFixed(2)}`;
+      document.querySelector('.desktop-summary .tax span:last-child').textContent = `$${currentPrices.tax}`;
+      document.querySelector('.desktop-summary .initial-fee span:last-child').textContent = `$${currentPrices.initialFee}`;
+      document.querySelector('.desktop-summary .recurring-fee span:last-child').textContent = `$${currentPrices.recurringFee}`;
+      
+      // Update mobile summary
+      document.querySelector('.mobile-summary .service-price').textContent = `$${currentPrices.subtotal.toFixed(2)}`;
+      document.querySelector('.mobile-summary .tax span:last-child').textContent = `$${currentPrices.tax}`;
+      document.querySelector('.mobile-summary .initial-fee span:last-child').textContent = `$${currentPrices.initialFee}`;
+      document.querySelector('.mobile-summary .recurring-fee span:last-child').textContent = `$${currentPrices.recurringFee}`;
     }
-  });
+
+    // Reset prices if coupon is removed
+    document.getElementById('coupon-code').addEventListener('input', function() {
+      if (this.value.trim() === '') {
+        // Reset to original prices
+        currentPrices = JSON.parse(JSON.stringify(originalPrices));
+        updatePrices();
+        document.getElementById('coupon-feedback').textContent = '';
+      }
+    });
 
   // Form submission
   document.querySelector('#cleaningForm').addEventListener('submit', function(e) {

@@ -1,4 +1,3 @@
-// form-script.js
 
 // Function to handle option selection
 function selectOption(element) {

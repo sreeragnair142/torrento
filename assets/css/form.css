@@ -1125,3 +1125,251 @@ color: #1F2937;}
     background-color: #e6f0ff;
   }
 
+
+
+
+      @media (max-width: 991px) {
+      .content-block.desktop-summary {
+        display: none;
+      }
+    }
+    
+    /* Mobile summary styling */
+    .mobile-summary {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    @media (max-width: 991px) {
+      .mobile-summary {
+        display: block;
+      }
+    }
+    
+    .mobile-summary h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .mobile-summary .service-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .mobile-summary .time-slot {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    .mobile-summary .frequency {
+      font-size: 14px;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+    
+    .mobile-summary .totals {
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    
+    .mobile-summary .totals div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .mobile-summary .fees {
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    
+    .mobile-summary .fees div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    /* Cleaning option selection styles */
+    .cleaning-option.selected {
+      border: 2px solid #4CAF50;
+      background-color: #f8f9fa;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .cleaning-option {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .cleaning-option:hover {
+      background-color: #f0f0f0;
+    }
+
+
+
+
+
+
+
+
+
+     .payment-icon::before {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", serif;
+            font-weight: 900;
+        }
+        
+        .icon-fallback-card::before { content: "💳"; }
+        .icon-fallback-cash::before { content: "💵"; }
+        .icon-fallback-mobile::before { content: "📱"; }
+        .icon-fallback-qr::before { content: "⚡"; }
+        .icon-fallback-wallet::before { content: "👛"; }
+        .icon-fallback-bank::before { content: "🏦"; }
+        .icon-fallback-google::before { content: "G"; }
+        .icon-fallback-mobile-alt::before { content: "📲"; }
+        .icon-fallback-credit::before { content: "💳"; }
+        .icon-fallback-shield::before { content: "🛡️"; }
+        .icon-fallback-info::before { content: "ℹ️"; }
+        .icon-fallback-arrow::before { content: "←"; }
+        .icon-fallback-check::before { content: "✓"; }
+
+            .form-steps {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background: #f8f9fa; */
+            border-radius: 10px;
+        }
+        
+        .donation-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .payment-methods {
+            margin-bottom: 25px;
+        }
+        
+        .payment-option {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .payment-option:hover {
+            border-color: #007bff;
+            background-color: #f8f9ff;
+        }
+        
+        .payment-option.active {
+            border-color: #007bff;
+            background-color: #e7f3ff;
+        }
+        
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+        
+        .payment-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .payment-details {
+            flex-grow: 1;
+        }
+        
+        .payment-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .payment-description {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin: 0;
+        }
+        
+        .payment-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .form-section {
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .prev-page {
+            color: #6c757d;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .prev-page:hover {
+            color: #007bff;
+        }
+        
+        .cash-info, .etransaction-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .etransaction-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .etransaction-btn {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .etransaction-btn:hover {
+            border-color: #007bff;
+            background-color: #f8f9ff;
+        }
+        
+        .etransaction-btn.selected {
+            border-color: #007bff;
+            background-color: #e7f3ff;
+        }
